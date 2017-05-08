@@ -1,30 +1,13 @@
 import { Component } from '@angular/core';
+import { Animal } from './animal.model';
 
 @Component({
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1>Angular2 CLI</h1>
-    <div>
-      <ul>
-        <li [class]="priorityFeed(currentAnimal)" *ngFor="let currentAnimal of animals">Beast: {{currentAnimal.name}}<button (click)="editName()">Edit!</button></li>
-      </ul>
-    </div>
-    <div>
-      <form>
-        <h2>Selected: {{selectedAnimal.name}}</h2>
-        <div>
-          <label>Change Name</label>
-          <input [(ngModel)]="selectedAnimal.name">
-        </div>
-        <div>
-          <label></label>
-          <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="cat">Cat
-          <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="bear">Bear
-          <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="wolf">Wolf
-        </div>
-      </form>
-    </div>
+    <h1>Zoo App</h1>
+    <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editName($event)"></animal-list>
+    <edit-animal></edit-animal>
   </div>
   `
 })
@@ -34,30 +17,25 @@ export class AppComponent {
   month: number = this.currentTime.getMonth() + 1;
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
+  selectedAnimal = null;
 
-    animals: Animal[] = [
-      new Animal("Cat", "Simba"),
-      new Animal("Bear","Baloo"),
-      new Animal("Cat", "Shearkon"),
-      new Animal("Wolf", "Balto"),
-    ];
 
-    selectedAnimal: Animal = this.animals[0];
+  animals: Animal[] = [
+    new Animal("Cat", "Simba", 6, "cat food", "Portland", "Keith", "Male", "Petting", "Being Sprayed with water"),
+    new Animal("Bear","Baloo", 5, "Salmon", "Sitka", "Dave", "Male", "Berries", "Loud Noises"),
+    new Animal("Cat", "Shearkon", 8, "Gazel", "Jungle", "Moglie", "Male", "Naps", "Fire"),
+    new Animal("Wolf", "Balto", 16, "Young Moose", "Anchorage", "Wild", "Male", "Running", "Beta Wolfs")
+  ];
 
-    editName() {
-      console.log("Change that name");
-    }
 
-    priorityFeed(currentAnimal){
-      console.log("you have fed the beast name: " + currentAnimal.name);
-    }
+  editName(clickedAnimal) {
+    console.log(clickedAnimal);
+    this.selectedAnimal = clickedAnimal;
+  }
 
-}
-
-export class Animal {
-  public done: boolean = false;
-  constructor(public species: string, public name: string){
-
+  finishedEditing() {
+    console.log("finished Editing");
+    this.selectedAnimal = null;
   }
 
 }
