@@ -4,9 +4,29 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
   <div class="container">
-  <h1>Angular2 CLI</h1>
-  <h2>{{firstTask.description}}</h2>
-  </div>`
+    <h1>Angular2 CLI</h1>
+    <div>
+      <ul>
+        <li [class]="priorityFeed(currentAnimal)" *ngFor="let currentAnimal of animals">Beast: {{currentAnimal.name}}<button (click)="editName()">Edit!</button></li>
+      </ul>
+    </div>
+    <div>
+      <form>
+        <h2>Selected: {{selectedAnimal.name}}</h2>
+        <div>
+          <label>Change Name</label>
+          <input [(ngModel)]="selectedAnimal.name">
+        </div>
+        <div>
+          <label></label>
+          <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="cat">Cat
+          <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="bear">Bear
+          <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="wolf">Wolf
+        </div>
+      </form>
+    </div>
+  </div>
+  `
 })
 
 export class AppComponent {
@@ -15,16 +35,29 @@ export class AppComponent {
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
 
-    firstTask = {
-      description: "Build dope-ass apps"
+    animals: Animal[] = [
+      new Animal("Cat", "Simba"),
+      new Animal("Bear","Baloo"),
+      new Animal("Cat", "Shearkon"),
+      new Animal("Wolf", "Balto"),
+    ];
+
+    selectedAnimal: Animal = this.animals[0];
+
+    editName() {
+      console.log("Change that name");
+    }
+
+    priorityFeed(currentAnimal){
+      console.log("you have fed the beast name: " + currentAnimal.name);
     }
 
 }
 
-export class Task {
+export class Animal {
   public done: boolean = false;
-  constructor(public description: string){
-    
+  constructor(public species: string, public name: string){
+
   }
 
 }
