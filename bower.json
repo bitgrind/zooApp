@@ -1,9 +1,18 @@
 {
   "name": "zooApp",
-  "description": "",
+  "description": "Zoo App",
   "main": "",
+  "authors": [
+    "Keith Stedman <keithstedman@gmail.com>"
+  ],
   "license": "MIT",
-  "homepage": "",
+  "keywords": [
+    "Marijuana",
+    "Delivery",
+    "Platform"
+  ],
+  "homepage": "index.html",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
