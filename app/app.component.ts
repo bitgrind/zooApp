@@ -29,8 +29,9 @@ export class AppComponent {
 
 
   editName(clickedAnimal) {
-    console.log(clickedAnimal);
+    console.log("animal recived for edit: "+clickedAnimal);
     this.selectedAnimal = clickedAnimal;
+    console.log("selected animal set to: "+ JSON.stringify(this.selectedAnimal));
   }
 
   finishedEditing() {

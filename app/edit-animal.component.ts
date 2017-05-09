@@ -5,18 +5,18 @@ import { Animal } from './animal.model';
   selector:'edit-animal',
   template:`
     <div *ngIf="childSelectedAnimal">
-      <h2>Selected Animal: {{selectedAnimal.name}}</h2>
+      <h2>Selected Animal: {{childSelectedAnimal.name}}</h2>
       <div>
         <label>Change Name</label>
-        <input [(ngModel)]="selectedAnimal.name">
+        <input [(ngModel)]="childSelectedAnimal.name">
       </div>
       <div>
         <label></label>
-        <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="cat">Cat
-        <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="bear">Bear
-        <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="wolf">Wolf
+        <input type="radio" [(ngModel)]="childSelectedAnimal.species" [value]="cat">Cat
+        <input type="radio" [(ngModel)]="childSelectedAnimal.species" [value]="bear">Bear
+        <input type="radio" [(ngModel)]="childSelectedAnimal.species" [value]="wolf">Wolf
       </div>
-      <button (click)="doneButtonClickedSender()">Done</button>
+      <button (click)="doneButtonClicked()">Done</button>
     </div>
   `
 })
