@@ -4,7 +4,7 @@ import { Animal } from './animal.model';
 @Component({
   selector:'edit-animal',
   template:`
-    <div *ngIf="selectedAnimal">
+    <div *ngIf="childSelectedAnimal">
       <h2>Selected Animal: {{selectedAnimal.name}}</h2>
       <div>
         <label>Change Name</label>
@@ -16,11 +16,16 @@ import { Animal } from './animal.model';
         <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="bear">Bear
         <input type="radio" [(ngModel)]="selectedAnimal.species" [value]="wolf">Wolf
       </div>
-      <button (click)="finishedEditing()">Done</button>
+      <button (click)="doneButtonClickedSender()">Done</button>
     </div>
   `
 })
 
 export class EditAnimalComponent {
+  @Input() childSelectedAnimal: Animal;
+  @Output() doneButtonClickedSender = new EventEmitter();
 
+  doneButtonClicked() {
+    this.doneButtonClickedSender.emit();
+  }
 }

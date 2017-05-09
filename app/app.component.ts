@@ -5,9 +5,10 @@ import { Animal } from './animal.model';
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1>Zoo App</h1>
-    <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editName($event)"></animal-list>
-    <edit-animal></edit-animal>
+    <h1>Angular2 Cli</h1>
+    <animal-list [childAnimalList]="masterAnimalList" (editClickSender)="editName($event)"></animal-list>
+    <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
+    <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
   </div>
   `
 })
@@ -19,8 +20,7 @@ export class AppComponent {
   year: number = this.currentTime.getFullYear();
   selectedAnimal = null;
 
-
-  animals: Animal[] = [
+  masterAnimalList: Animal[] = [
     new Animal("Cat", "Simba", 6, "cat food", "Portland", "Keith", "Male", "Petting", "Being Sprayed with water"),
     new Animal("Bear","Baloo", 5, "Salmon", "Sitka", "Dave", "Male", "Berries", "Loud Noises"),
     new Animal("Cat", "Shearkon", 8, "Gazel", "Jungle", "Moglie", "Male", "Naps", "Fire"),
@@ -36,6 +36,10 @@ export class AppComponent {
   finishedEditing() {
     console.log("finished Editing");
     this.selectedAnimal = null;
+  }
+
+  addAnimal(newAnimalFromChild: Animal) {
+    this.masterAnimalList.push(newAnimalFromChild);
   }
 
 }
