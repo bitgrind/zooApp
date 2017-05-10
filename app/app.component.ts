@@ -23,7 +23,8 @@ export class AppComponent {
     new Animal("Cat", "Simba", 6, "cat food", "Portland", "Keith", "Male", "Petting", "Being Sprayed with water"),
     new Animal("Bear","Baloo", 5, "Salmon", "Sitka", "Dave", "Male", "Berries", "Loud Noises"),
     new Animal("Cat", "Shearkon", 8, "Gazel", "Jungle", "Moglie", "Male", "Naps", "Fire"),
-    new Animal("Wolf", "Balto", 16, "Young Moose", "Anchorage", "Wild", "Male", "Running", "Beta Wolfs")
+    new Animal("Wolf", "Balto", 16, "Young Moose", "Anchorage", "Wild", "Male", "Running", "Beta Wolfs"),
+    new Animal("Turtle", "Tommi", 1, "Lettus", "Hawaii", "Jim", "Female", "turtling", "Being on his back")
   ];
 
 
