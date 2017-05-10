@@ -41,7 +41,7 @@ import { Animal } from './animal.model';
       <span class="animal-dislikes">
         {{currentAnimal.dislikes}}
       </span>
-      <button class="animal-edit" (click)="editNameHasBeenClicked(currentAnimal)">Edit Name</button>
+      <button class="animal-edit" (click)="editNameHasBeenClicked(currentAnimal)">Edit Animal</button>
     </li>
   </ul>
   `

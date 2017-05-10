@@ -11,10 +11,12 @@ import { Animal } from './animal.model';
         <input [(ngModel)]="childSelectedAnimal.name">
       </div>
       <div>
-        <label></label>
-        <input type="radio" [(ngModel)]="childSelectedAnimal.species" [value]="cat">Cat
-        <input type="radio" [(ngModel)]="childSelectedAnimal.species" [value]="bear">Bear
-        <input type="radio" [(ngModel)]="childSelectedAnimal.species" [value]="wolf">Wolf
+        <label>Change Age</label>
+        <input [(ngModel)]="childSelectedAnimal.age">
+      </div>
+      <div>
+        <label>Change Caretakers</label>
+        <input [(ngModel)]="childSelectedAnimal.caretakers">
       </div>
       <button (click)="doneButtonClicked()">Done</button>
     </div>
