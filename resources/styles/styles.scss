@@ -1,1 +1,30 @@
+// @import "bootstrap";
+// @import "bootstrap/theme";
+
+h1,h2,h3 {padding:0;margin:0;color:#007f15;}
+
+header {display:block;position: relative;padding:2% 5%;padding-bottom:449px;color:#fff;z-index: 20;}
+body header #navheader.navbar-default {background-color:rgba(255,255,255,1);border:none;padding:1% 2%;}
+nav h1 {color:#007f15;padding:0; margin:0; display:inline-block; margin-top:4px;}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {float:right; color:#007f15;}
+
+#carousel-wrapper {position: absolute;top:0;left:0;right:0;margin:auto; z-index:10;overflow: hidden;}
+
+.main-btn {
+  height:300px;
+  background-color:#000;
+  background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(218,227,237,1) 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(218,227,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(218,227,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  border-left:1px solid #ddd;
+}
+
+.carousel {height:563px;}
+
+main {min-height:550px; background-color:#fff;}
+main app-root {padding-top:50px;display:block;clear:both;}
+
+footer {background-color:#007f15;height:100px;margin-top:40px;position:relative;bottom:0;width:100%;}
+
 .control-form label {width:90px;display: inline-block;text-align:right;}

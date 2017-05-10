@@ -5,7 +5,6 @@ import { Animal } from './animal.model';
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1>Angular2 Cli</h1>
     <animal-list [childAnimalList]="masterAnimalList" (editClickSender)="editName($event)"></animal-list>
     <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
     <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
